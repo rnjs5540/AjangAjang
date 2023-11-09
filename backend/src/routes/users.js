@@ -12,7 +12,9 @@ router.get('/auth', auth, (req, res) => {
         email: req.user.email,
         name: req.user.name,
         role: req.user.role,
-        image: req.user.image
+        image: req.user.image,
+        cart: req.user.cart,
+        history: req.user.history
     })
 })
 
@@ -29,6 +31,7 @@ router.post('/register', async (req, res, next) => {
 })
 
 router.post('/login', async (req, res) => {
+    console.log(req)
     // req.body => email, password
     try {
         // 존재하는 유저인지 확인
@@ -56,10 +59,6 @@ router.post('/login', async (req, res) => {
         console.log('에러: ' + error);
         next(error);
     }
-})
-
-router.post('/auth', (req, res) => {
-    
 })
 
 router.post('/logout', auth, async (req, res, next) => {

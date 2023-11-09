@@ -4,7 +4,8 @@ import { loginUser } from '../../store/thunkFunctions';
 import { useDispatch } from 'react-redux';
 
 const LoginPage = () => {
-  const { register, 
+  const { 
+    register, 
     handleSubmit, 
     formState: { errors }, 
     reset 

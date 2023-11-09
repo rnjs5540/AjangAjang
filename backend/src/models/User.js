@@ -19,7 +19,15 @@ const userSchema = mongoose.Schema({
         type: Number,
         default: 0,
     },
-    image: String
+    image: String,
+    cart: {
+        type: Array,
+        default: []
+    },
+    history: {
+        type: Array, 
+        default: []
+    }
 })
 
 // schema 생성 후 모델 만들어야 함

@@ -31,11 +31,12 @@ app.post('/', (req, res) => {
 
 // routes\users.js에서 내보낸 라우터를 여기 엔트리 파일에서 가져와야 함
 // 여기서 /users 붙여놨으므로 /routes/users.js에서는 /users 생략가능 
-app.use('/users', require('./routes/users'))
+app.use('/users', require('./routes/users'));
+app.use('/products', require('./routes/products'));
 
 app.use((error, req, res, next) => {
-    res.status(err.status || 500)
-    res.send(error.message)
+    res.status(err.status || 500);
+    res.send(error.message || '서버에서 에러가 났습니다.');
 })
 
 app.use(express.static(path.join(__dirname, '../uploads')));
